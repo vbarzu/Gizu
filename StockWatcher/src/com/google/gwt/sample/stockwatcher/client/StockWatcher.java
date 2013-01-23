@@ -53,12 +53,14 @@ public class StockWatcher implements EntryPoint {
 		loginService.login(GWT.getHostPageBaseURL(),
 				new AsyncCallback<LoginInfo>() {
 					public void onFailure(Throwable error) {
-						handleError(error);
+					    System.out.println("oh noes you failed");
+					    handleError(error);
 					}
 
 					public void onSuccess(LoginInfo result) {
 						loginInfo = result;
 						if (loginInfo.isLoggedIn()) {
+						    System.out.println("yay way to succeed!");
 							loadStockWatcher();
 						} else {
 							loadLogin();
